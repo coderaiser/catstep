@@ -1,10 +1,15 @@
 (function() {
     'use strict';
     
-    var Cat         = document.querySelector('[data-name="catstep"]'),
+    var Cat         = getByDataName('catstep'),
         Direction   = {
-            right: document.querySelectorAll('[data-name="catstep-right"]'),
-            left: document.querySelectorAll('[data-name="catstep-left"]')
+            right: getByDataNameAll('catstep-right'),
+            left: getByDataNameAll('catstep-left')
+        },
+        
+        Move        = {
+            right: getByDataName('catstep-move-right'),
+            left: getByDataName('catstep-move-left')
         },
         
         forEach     = function(array, callback) {
@@ -24,6 +29,9 @@
             break;
         }
     });
+    
+    Move.right.addEventListener('click', right);
+    Move.left.addEventListener('click', left);
     
     function right() {
         modify(Cat.style, 10);
@@ -62,6 +70,19 @@
             if (!item.hidden)
                 item.hidden = true;
         });
+    }
+    
+    function getByDataName(selector) {
+        var result = getByDataNameAll(selector)[0];
+        
+        return result;
+    }
+    
+    function getByDataNameAll(selector) {
+        var result = document
+            .querySelectorAll('[data-name="' + selector + '"]');
+        
+        return result;
     }
     
 })();

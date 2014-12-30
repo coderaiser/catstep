@@ -9,9 +9,31 @@
             down    : getByDataNameAll('catstep-down'),
         },
         
+        MoveEl      = {
+            left    : getByDataName('catstep-move-left'),
+            right   : getByDataName('catstep-move-right'),
+            up      : getByDataName('catstep-move-up'),
+            down    : getByDataName('catstep-move-down')
+        },
+        
         Move        = {
-            right: getByDataName('catstep-move-right'),
-            left: getByDataName('catstep-move-left')
+            left: function() {
+                modify(Cat.style, -10);
+                step('left');
+            },
+            
+            right: function() {
+                modify(Cat.style, 10);
+                step('right');
+            },
+            
+            up: function () {
+                step('up');
+            },
+            
+            down: function() {
+                step('down');
+            }
         },
         
         forEach     = function(array, callback) {
@@ -26,40 +48,23 @@
     window.addEventListener('keydown', function(event) {
         switch (event.keyCode) {
         case KEY_RIGHT:
-            right();
+            Move.right();
             break;
         case KEY_LEFT:
-            left();
+            Move.left();
             break;
         case KEY_UP:
-            up();
+            Move.up();
             break;
         case KEY_DOWN:
-            down();
+            Move.down();
             break;
         }
     });
     
-    Move.right.addEventListener('click', right);
-    Move.left.addEventListener('click', left);
-    
-    function left() {
-        modify(Cat.style, -10);
-        step('left');
-    }
-    
-    function right() {
-        modify(Cat.style, 10);
-        step('right');
-    }
-    
-    function up() {
-        step('up');
-    }
-    
-    function down() {
-        step('down');
-    }
+    Object.keys(MoveEl).forEach(function(name) {
+        MoveEl[name].addEventListener('click', Move[name]);
+    });
     
     function modify(style, number) {
         var current = parseInt(style.left, 10) || 0;

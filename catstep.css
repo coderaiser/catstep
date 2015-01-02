@@ -10,3 +10,8 @@
     right: 0;
     border: 0;
 }
+
+.catstep-down {
+    bottom: 30px;
+    position: relative;
+}

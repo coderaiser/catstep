@@ -1,7 +1,12 @@
+body {
+    font-family: Terminal, Roboto
+}
+
 .catstep {
     width: 400px;
     height: 400px;
     position: relative;
+    overflow: hidden;
 }
 
 .catstep-down {

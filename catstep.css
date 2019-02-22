@@ -4,14 +4,13 @@
     position: relative;
 }
 
-.github-ribbon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
-}
-
 .catstep-down {
     bottom: 30px;
     position: relative;
+}
+
+.catstep-joystick {
+    display: flex;
+    justify-content: space-between;
+    font-size: 50px;
 }

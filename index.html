@@ -8,12 +8,7 @@
     </head>
     <body>
         <h1>
-        Move the cat with
-        <a href="#" title="up" data-name="catstep-move-up">&uarr;</a> 
-        <a href="#" title="left" data-name="catstep-move-left">&larr;</a> 
-        <a href="#" title="right" data-name="catstep-move-right">&rarr;</a>
-        <a href="#" title="down" data-name="catstep-move-down">&darr;</a> 
-        buttons
+        Move the cat with buttons
         </h1>
         <div data-name="catstep" class="catstep">
             <img src="catstep-left1.svg" class="catstep-image" data-name="catstep-left" hidden>
@@ -23,13 +18,15 @@
             <img src="catstep-up.svg" class="catstep-image" data-name="catstep-up" hidden>
             <img src="catstep-down.svg" class="catstep-image catstep-down" data-name="catstep-down" hidden>
         </div>
-        <div class="left">
-            <a href="#" title="up" data-name="catstep-move-up">&uarr;</a> 
-            <a href="#" title="right" data-name="catstep-move-right">&rarr;</a>
-        </div>
-        <div class="right">
-            <a href="#" title="left" data-name="catstep-move-left">&larr;</a> 
-            <a href="#" title="down" data-name="catstep-move-down">&darr;</a> 
+        <div class="catstep-joystick">
+            <div class="left">
+                <a href="#" title="up" data-name="catstep-move-up">&uarr;</a> 
+                <a href="#" title="down" data-name="catstep-move-down">&darr;</a> 
+            </div>
+            <div class="right">
+                <a href="#" title="left" data-name="catstep-move-left">&larr;</a> 
+                <a href="#" title="right" data-name="catstep-move-right">&rarr;</a>
+            </div>
         </div>
         <script src="catstep.js"></script>
     </body>

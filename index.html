@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <title>Cat Step</title>
         <link rel="stylesheet" href="catstep.css">
         <link rel="icon" href="favicon.ico">
@@ -22,10 +23,14 @@
             <img src="catstep-up.svg" class="catstep-image" data-name="catstep-up" hidden>
             <img src="catstep-down.svg" class="catstep-image catstep-down" data-name="catstep-down" hidden>
         </div>
-        <a href="https://github.com/coderaiser/catstep">
-            <img class="github-ribbon" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
-        </a>
-        
+        <div class="left">
+            <a href="#" title="up" data-name="catstep-move-up">&uarr;</a> 
+            <a href="#" title="right" data-name="catstep-move-right">&rarr;</a>
+        </div>
+        <div class="right">
+            <a href="#" title="left" data-name="catstep-move-left">&larr;</a> 
+            <a href="#" title="down" data-name="catstep-move-down">&darr;</a> 
+        </div>
         <script src="catstep.js"></script>
     </body>
 </html>

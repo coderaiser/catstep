@@ -1,51 +1,52 @@
 (function() {
     'use strict';
     
-    var Cat         = getByDataName('catstep'),
-        Direction   = {
-            left    : getByDataNameAll('catstep-left'),
-            right   : getByDataNameAll('catstep-right'),
-            up      : getByDataNameAll('catstep-up'),
-            down    : getByDataNameAll('catstep-down'),
-        },
-        
-        MoveEl      = {
-            left    : getByDataName('catstep-move-left'),
-            right   : getByDataName('catstep-move-right'),
-            up      : getByDataName('catstep-move-up'),
-            down    : getByDataName('catstep-move-down')
-        },
-        
-        Move        = {
-            left: function() {
-                modify(Cat.style, -10);
-                step('left');
-            },
-            
-            right: function() {
-                modify(Cat.style, 10);
-                step('right');
-            },
-            
-            up: function () {
-                step('up');
-            },
-            
-            down: function() {
-                step('down');
-            }
-        },
-        
-        forEach     = function(array, callback) {
-            Array.prototype.forEach.call(array, callback);
-        },
-        
-        KEY_LEFT    = 37,
-        KEY_RIGHT   = 39,
-        KEY_UP      = 38,
-        KEY_DOWN    = 40;
+    const Cat = getByDataName('catstep');
     
-    window.addEventListener('keydown', function(event) {
+    const Direction = {
+        left    : getByDataNameAll('catstep-left'),
+        right   : getByDataNameAll('catstep-right'),
+        up      : getByDataNameAll('catstep-up'),
+        down    : getByDataNameAll('catstep-down'),
+    };
+    
+    const MoveEl = {
+        left    : getByDataName('catstep-move-left'),
+        right   : getByDataName('catstep-move-right'),
+        up      : getByDataName('catstep-move-up'),
+        down    : getByDataName('catstep-move-down'),
+    };
+    
+    const Move = {
+        left() {
+            modify(Cat.style, -10);
+            step('left');
+        },
+        
+        right() {
+            modify(Cat.style, 10);
+            step('right');
+        },
+        
+        up() {
+            step('up');
+        },
+        
+        down() {
+            step('down');
+        },
+    };
+    
+    const forEach = (array, callback) => {
+        Array.prototype.forEach.call(array, callback);
+    };
+    
+    const KEY_LEFT = 37;
+    const KEY_RIGHT = 39;
+    const KEY_UP = 38;
+    const KEY_DOWN = 40;
+    
+    window.addEventListener('keydown', (event) => {
         switch (event.keyCode) {
         case KEY_RIGHT:
             Move.right();
@@ -62,18 +63,18 @@
         }
     });
     
-    Object.keys(MoveEl).forEach(function(name) {
+    Object.keys(MoveEl).forEach((name) => {
         MoveEl[name].addEventListener('click', Move[name]);
     });
     
     function modify(style, number) {
-        var current = parseInt(style.left, 10) || 0;
+        const current = parseInt(style.left, 10) || 0;
         style.left = current + number + 'px';
     }
     
     function step(direction) {
-        Object.keys(Direction).forEach(function(where) {
-            var elements = Direction[where];
+        Object.keys(Direction).forEach((where) => {
+            const elements = Direction[where];
             
             if (where !== direction)
                 hide(where);
@@ -96,25 +97,25 @@
     }
     
     function hide(direction) {
-        var steps = Direction[direction];
+        const steps = Direction[direction];
         
-        forEach(steps, function(item) {
+        [...steps].forEach((item) => {
             if (!item.hidden)
                 item.hidden = true;
         });
     }
     
     function getByDataName(selector) {
-        var result = getByDataNameAll(selector)[0];
+        const [result] = getByDataNameAll(selector);
         
         return result;
     }
     
     function getByDataNameAll(selector) {
-        var result = document
+        const result = document
             .querySelectorAll('[data-name="' + selector + '"]');
         
         return result;
     }
-    
 })();
+

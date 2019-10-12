@@ -34,7 +34,7 @@
     "madrun": "^3.0.6",
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
-    "putout": "^3.22.0",
+    "putout": "^6.15.1",
     "tape": "^4.8.0"
   },
   "peerDependencies": {

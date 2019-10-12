@@ -1,6 +1,6 @@
+'use strict';
+
 (function() {
-    'use strict';
-    
     const Cat = getByDataName('catstep');
     
     const Direction = {
@@ -37,17 +37,13 @@
         },
     };
     
-    const forEach = (array, callback) => {
-        Array.prototype.forEach.call(array, callback);
-    };
-    
     const KEY_LEFT = 37;
     const KEY_RIGHT = 39;
     const KEY_UP = 38;
     const KEY_DOWN = 40;
     
     window.addEventListener('keydown', (event) => {
-        switch (event.keyCode) {
+        switch(event.keyCode) {
         case KEY_RIGHT:
             Move.right();
             break;
@@ -63,9 +59,9 @@
         }
     });
     
-    Object.keys(MoveEl).forEach((name) => {
+    for (const name of Object.keys(MoveEl)) {
         MoveEl[name].addEventListener('click', Move[name]);
-    });
+    }
     
     function modify(style, number) {
         const current = parseInt(style.left, 10) || 0;
@@ -73,13 +69,13 @@
     }
     
     function step(direction) {
-        Object.keys(Direction).forEach((where) => {
+        for (const where of Object.keys(Direction)) {
             const elements = Direction[where];
             
             if (where !== direction)
                 hide(where);
             else
-                switch (elements.length) {
+                switch(elements.length) {
                 case 1:
                     elements[0].hidden = false;
                     break;
@@ -93,16 +89,16 @@
                     }
                     break;
                 }
-        });
+        }
     }
     
     function hide(direction) {
         const steps = Direction[direction];
         
-        [...steps].forEach((item) => {
+        for (const item of steps) {
             if (!item.hidden)
                 item.hidden = true;
-        });
+        }
     }
     
     function getByDataName(selector) {

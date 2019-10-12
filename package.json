@@ -13,9 +13,10 @@
   "scripts": {
     "test": "madrun test",
     "watch:test": "madrun watch:test",
-    "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
-    "coverage": "madrun coverage"
+    "lint": "madrun lint",
+    "coverage": "madrun coverage",
+    "report": "madrun report"
   },
   "nyc": {
     "exclude": [

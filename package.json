@@ -30,7 +30,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "eslint": "^6.5.1",
-    "eslint-plugin-putout": "^1.0.3",
+    "eslint-plugin-putout": "^2.0.1",
     "madrun": "^3.0.6",
     "nodemon": "^1.14.12",
     "nyc": "^13.0.1",
